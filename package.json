@@ -21,7 +21,15 @@
   "bugs": {
     "url": "https://github.com/lonelydatum/stardust/issues"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "homepage": "https://github.com/lonelydatum/stardust#readme",
+  "keywords": [
+    "random",
+    "starwars"
+  ],
   "devDependencies": {
     "babel-cli": "6.22.2",
     "babel-loader": "6.2.10",
