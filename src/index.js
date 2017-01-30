@@ -5,7 +5,7 @@ module.exports = {
   all: 'all',
   random: random,
   gar(){
-    return 55
+    return 66
   }
 };
 

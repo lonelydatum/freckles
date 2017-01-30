@@ -7,7 +7,7 @@ export default {
   output: {
     path: join(__dirname, 'dist'),
     libraryTarget: 'umd',
-    library: 'garWars',
+    library: 'stardust',
   },
   devtool: 'source-map',
   module: {
