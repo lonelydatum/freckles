@@ -1,0 +1,47 @@
+{
+  "name": "stardust",
+  "version": "0.0.0-development",
+  "description": "make particles",
+  "main": "./dist/index.js",
+  "scripts": {
+    "commit": "git-cz",
+    "prebuild": "rimraf dist",
+    "build": "npm-run-all --parallel build:*",
+    "build:main": "babel src -d dist --copy-files",
+    "build:umd": "webpack --output-filename index.umd.js",
+    "build:umd.min": "webpack --output-filename index.umd.min.js -p",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lonelydatum/stardust.git"
+  },
+  "author": "Gar Liu <gar@lonelydatum.com> (http://lonelydatum.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lonelydatum/stardust/issues"
+  },
+  "homepage": "https://github.com/lonelydatum/stardust#readme",
+  "devDependencies": {
+    "babel-cli": "6.22.2",
+    "babel-preset-es2015": "6.22.0",
+    "babel-preset-stage-2": "6.22.0",
+    "commitizen": "2.9.5",
+    "cz-conventional-changelog": "1.2.0",
+    "npm-run-all": "4.0.1",
+    "rimraf": "2.5.4",
+    "semantic-release": "^6.3.2",
+    "webpack": "1.14.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-2"
+    ]
+  }
+}
