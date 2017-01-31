@@ -1,5 +1,5 @@
 {
-  "name": "stardust",
+  "name": "star-dust",
   "version": "0.0.0-development",
   "description": "make particles",
   "main": "./dist/index.js",
@@ -14,18 +14,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lonelydatum/stardust.git"
+    "url": "https://github.com/lonelydatum/star-dust.git"
   },
   "author": "Gar Liu <gar@lonelydatum.com> (http://lonelydatum.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lonelydatum/stardust/issues"
+    "url": "https://github.com/lonelydatum/star-dust/issues"
   },
   "files": [
     "dist",
     "README.md"
   ],
-  "homepage": "https://github.com/lonelydatum/stardust#readme",
+  "homepage": "https://github.com/lonelydatum/star-dust#readme",
   "keywords": [
     "random",
     "starwars"
