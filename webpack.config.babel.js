@@ -3,7 +3,7 @@ import {join} from 'path'
 const include = join(__dirname, 'src')
 
 export default {
-  entry: './src/index',
+  entry: './src/Main',
   output: {
     path: join(__dirname, 'dist'),
     libraryTarget: 'umd',
@@ -12,8 +12,8 @@ export default {
   devtool: 'source-map',
   module: {
     loaders: [
-      {test: /\.js$/, loader: 'babel', include},
-      {test: /\.json$/, 'loader': 'json', include},
+      {test: /\.js$/, loader: 'babel-loader', include},
+      {test: /\.json$/, 'loader': 'json-loader', include},
     ]
   }
 }
