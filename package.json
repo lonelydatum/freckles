@@ -2,7 +2,7 @@
   "name": "star-dust",
   "version": "0.0.0-development",
   "description": "make particles",
-  "main": "./dist/index.js",
+  "main": "./dist/index.umd.js",
   "scripts": {
     "start": "node server.js",
     "commit": "git-cz",
@@ -10,9 +10,9 @@
     "test": "jest",
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
-    "build:main": "babel src -d dist --copy-files --ignore '**/*.test.js'",
-    "build:umd": "webpack --config webpack.config.babel.js --output-filename index.umd.js",
-    "build:umd.min": "webpack --config webpack.config.babel.js --output-filename index.umd.min.js -p",
+    "build:main": "babel src",
+    "build:umd":  "webpack --config webpack.config.babel.js --output-filename index.umd.js",
+
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
