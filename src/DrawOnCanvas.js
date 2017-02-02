@@ -6,7 +6,6 @@ class DrawOnCanvas {
 	constructor(canvas, styles=undefined) {
 		this.canvas = canvas
 		this.styles = {...DrawOnCanvas.DEFAULTS, ...styles}
-
 	}
 
 	write(message='hello', styleSuper) {
