@@ -1,7 +1,7 @@
 
 import tocss from 'to-css'
 import _ from './util/gar-dash.js'
-import rasterizeHTML from 'rasterizeHTML'
+import rasterizeHTML from './util/raster.js'
 
 
 class DrawOnCanvas {
