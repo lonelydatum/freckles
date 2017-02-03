@@ -1,19 +1,19 @@
-/*! rasterizeHTML.js - v1.2.4 - 2016-10-30
-* http://www.github.com/cburgmer/rasterizeHTML.js
-* Copyright (c) 2016 Christoph Burgmer; Licensed MIT */
 
+import tocss from 'to-css'
+import _ from './util/gar-dash.js'
+import rasterizeHTML from 'rasterizeHTML/dist/rasterizeHTML.allinone.js'
 
-import rasterizeHTML from './Raster.js'
-var tocss = require('to-css')
-import _ from 'lodash'
 
 class DrawOnCanvas {
 	constructor(canvas, styles=undefined) {
-		this.canvas = canvas
+		this.canvasDummy = canvas.cloneNode()
+		this.canvasDummy.id="dummy"
+		// document.body.appendChild(this.canvasDummy)
 		this.styles = {...DrawOnCanvas.DEFAULTS, ...styles}
 	}
 
 	write(message='hello', styleSuper) {
+
 		let styles = {...this.styles, ...styleSuper}
 		const css = {
 			'font-family': `${styles['font-family']}`,
@@ -30,14 +30,16 @@ class DrawOnCanvas {
 		let messageString = `<span style="${tocss(css)}">${message}</span>`
 		messageString += (this.fontFace) ? `<style>${this.fontFace}</style>` : ''
 
-		const promise = rasterizeHTML.drawHTML(messageString, this.canvas);
-
+		const promise = rasterizeHTML.drawHTML(messageString, this.canvasDummy);
+		console.log(this.canvasDummy);
 		const fun = function(resolve, reject) {
   			promise.then( (resultPass)=>{
+
 				resolve(resultPass)
 			} )
 
 			promise.fail( (resultFail)=>{
+				console.log(this.canvasDummy);
 				reject(resultFail);
 			} )
 		}

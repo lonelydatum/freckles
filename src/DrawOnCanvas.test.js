@@ -1,3 +1,4 @@
+
 import DrawOnCanvas from './DrawOnCanvas.js'
 
 const canvas = window.document.createElement("canvas");
@@ -21,6 +22,5 @@ test('addFontFace - NOT set as default', ()=>{
 	drawOnCanvas.addFontFace('barrioregular', ff, false);
 	expect(DrawOnCanvas.DEFAULTS['font-family']).toBe(drawOnCanvas.styles['font-family'])
 })
-
 
 

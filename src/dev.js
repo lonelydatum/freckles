@@ -1,8 +1,9 @@
 
 import {Stardust, DrawOnCanvas} from './index.js'
 
-let dummyCanvas = document.getElementById('art')
+let canvas = document.getElementById('art')
 let stardust
+let drawOnCanvas
 
 
 function write() {
@@ -21,14 +22,15 @@ function write() {
 	    font-weight: normal;
 	    font-style: normal;
 	}`
-	const drawOnCanvas = new DrawOnCanvas( dummyCanvas )
+	drawOnCanvas = new DrawOnCanvas( canvas )
 	drawOnCanvas.addFontFace('barrioregular', ff);
 	const promise = drawOnCanvas.write(message, style)
+
 	promise.then(createStardust)
 }
 
-function createStardust() {
-	stardust = new Stardust(dummyCanvas)
+function createStardust(result) {
+	stardust = new Stardust( drawOnCanvas.canvasDummy, canvas )
 	render()
 }
 

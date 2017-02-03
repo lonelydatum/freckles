@@ -1,28 +1,24 @@
 
-import FilterByColor from './FilterByColor.js'
+import FilterByColor from './util/FilterByColor.js'
+import {range} from './util/Helper.js'
 import Vector from './Vector.js'
 import Particle from './Particle.js'
-import {range} from './Helper.js'
+
 
 const particles = []
-
 const WIDTH = 500
 const HEIGHT = 500
 
 class StarDust {
-	constructor(dummyCanvas) {
+	constructor(dummyCanvas, canvas) {
 		this.dummyCanvas = dummyCanvas
-		this.canvas = this.dummyCanvas.cloneNode()
+		this.canvas = canvas
 		this.ctx = this.canvas.getContext('2d')
-		document.body.appendChild(this.canvas)
-
 		this.doFilterColor(this.dummyCanvas)
-		this.render()
+
 	}
 
-
-
-
+	// loop through the dummy canvas to get the nontransparent pixels
 	doFilterColor(canvas) {
 		const filterByColor = new FilterByColor(canvas)
 		this.createParticles(filterByColor.list);
