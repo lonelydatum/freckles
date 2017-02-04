@@ -30,7 +30,6 @@ class DrawOnCanvas {
 			position:'absolute'
 		}
 
-		console.log(css);
 
 		let messageString = `<div style="${tocss(css)}">${message}</div>`
 		messageString += (this.fontFace) ? `<style>${this.fontFace}</style>` : ''

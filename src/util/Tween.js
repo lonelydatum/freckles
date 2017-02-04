@@ -35,7 +35,6 @@ class Tweener {
 	get line(){
 		const center = {...this.rectSD.center}
 		const {w,h} = this.rectSD
-		console.log(center.n);
 		return {
 				'n': this.rect(center.n.x, center.n.y, w, 0),
 				'e': this.rect(center.e.x, center.e.y, 0, h),
@@ -47,7 +46,6 @@ class Tweener {
 	get word(){
 		const center = {...this.rectSD.center}
 		const {w,h} = this.rectSD
-		console.log(center.n);
 		return {
 				'n': this.rect(this.rectWord.centerX, this.rectSD.north, this.rectWord.w, 0 ),
 				'e': this.rect(this.rectSD.east, this.rectWord.centerY, 0, this.rectWord.h ),

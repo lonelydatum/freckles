@@ -8,7 +8,7 @@ class Main {
 		this.canvas = canvas
 		this.stardust
 		this.drawOnCanvas = new DrawOnCanvas( this.canvas, styles )
-		this.tweenToRect = new Rect(220,0,0,0)
+		this.tweenToRect = new Rect(0,0,0,0)
 	}
 
 	tweenTo(r) {
@@ -24,7 +24,6 @@ class Main {
 
 	createStardust(result) {
 		this.stardust = new Stardust( this.drawOnCanvas.canvasDummy, this.canvas )
-
 	}
 
 	play() {
@@ -39,4 +38,4 @@ class Main {
 	}
 }
 
-export default Main
+export {Main as default, Tween}

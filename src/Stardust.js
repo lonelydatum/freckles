@@ -24,7 +24,6 @@ class StarDust {
 	}
 
 	setDynamic(data) {
-		console.log(data);
 		this.tweenRect = data
 	}
 
@@ -34,16 +33,11 @@ class StarDust {
 	}
 
 
-
-
-
 	createParticles() {
 		this.particles = this.filterByColor.list.map((listItem, index)=>{
 			return this.createParticleItem(listItem, index)
 		})
 	}
-
-
 
 	createDynamic() {
 		const {x, y} = this.tweenRect.getRandomPoint()
