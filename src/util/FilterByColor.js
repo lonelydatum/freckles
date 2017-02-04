@@ -5,7 +5,30 @@ class FilterByColor {
 	constructor(canvas) {
 
 		this.ctx = canvas.getContext('2d')
+
+
+		this.minMax = {
+			min: {
+				x: Number.POSITIVE_INFINITY,
+				y: Number.POSITIVE_INFINITY
+			},
+			max: {
+				x: Number.NEGATIVE_INFINITY,
+				y: Number.NEGATIVE_INFINITY
+			}
+		}
+
+		this.tmpX
+		this.tmpY
+
 		this.list = this.getNonTransparentPixels(this.ctx)
+
+		const wh = {
+			w:this.minMax.max.x - this.minMax.min.x,
+			h:this.minMax.max.y - this.minMax.min.y
+		}
+
+		this.rectWord = new Rect(this.minMax.min.x, this.minMax.min.y, wh.w, wh.h)
 
 	}
 
@@ -13,6 +36,7 @@ class FilterByColor {
 
 		const rect = new Rect(0, 0, context.canvas.width, context.canvas.height)
 		const data = context.getImageData(rect.x, rect.y, rect.w, rect.h).data
+
 
 
 		// const data = imageData.data
@@ -34,6 +58,14 @@ class FilterByColor {
 
 			if(rgba.a > 0) {
 				const item = {rgba, x, y}
+				this.tmpX = x;
+		    	if (this.tmpX < this.minMax.min.x) this.minMax.min.x = this.tmpX;
+		    	if (this.tmpX > this.minMax.max.x) this.minMax.max.x = this.tmpX;
+
+		    	this.tmpY = y;
+		    	if (this.tmpY < this.minMax.min.y) this.minMax.min.y = this.tmpY;
+		    	if (this.tmpY > this.minMax.max.y) this.minMax.max.y = this.tmpY;
+
 				list.push(item);
 			}
 

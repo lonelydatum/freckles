@@ -20,26 +20,28 @@ class DrawOnCanvas {
 			'font-size':`${styles['font-size']}px`,
 			color: styles.color || 'red',
 			top:`${styles.top}px`,
+			bottom:`${styles.bottom}px`,
 			left: `${styles.left}px`,
 			'line-height': _.get(styles, 'line-height', 'undefined') + 'px',
 			'letter-spacing': _.get(styles, 'letter-spacing', 'undefined') + 'px',
 			'word-spacing': _.get(styles, 'word-spacing', 'undefined') + 'px',
+			'width': '100%',
+			'text-align': 'center',
 			position:'absolute'
 		}
 
-		let messageString = `<span style="${tocss(css)}">${message}</span>`
+		console.log(css);
+
+		let messageString = `<div style="${tocss(css)}">${message}</div>`
 		messageString += (this.fontFace) ? `<style>${this.fontFace}</style>` : ''
 
 		const promise = rasterizeHTML.drawHTML(messageString, this.canvasDummy);
-		console.log(this.canvasDummy);
 		const fun = function(resolve, reject) {
   			promise.then( (resultPass)=>{
-
 				resolve(resultPass)
 			} )
 
 			promise.fail( (resultFail)=>{
-				console.log(this.canvasDummy);
 				reject(resultFail);
 			} )
 		}
@@ -64,6 +66,7 @@ DrawOnCanvas.DEFAULTS = {
 	'font-family': `'Helvetica Neue', Helvetica, Arial, sans-serif`,
 	'font-size': 88,
 	top: 0,
+	bottom: 0,
 	left: 1,
 	color: 'green'
 }
