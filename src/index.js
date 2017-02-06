@@ -11,9 +11,6 @@ class Main {
 		this.tweenToRect = new Rect(0,0,0,0)
 	}
 
-	tweenTo(r) {
-		this.tweenToRect = r
-	}
 
 	write(message, style) {
 		this.drawOnCanvas.addFontFace(style.fontface.name, style.fontface.data);
@@ -26,10 +23,16 @@ class Main {
 		this.stardust = new Stardust( this.drawOnCanvas.canvasDummy, this.canvas )
 	}
 
+	tweenTo(r) {
+		this.tweenToRect = r
+	}
+
 	play() {
 		this.stardust.setDynamic(this.tweenToRect)
 		this.stardust.createParticles()
+		this.stardust.tween()
 		this.render()
+		console.log(this.stardust.particles.length);
 	}
 
 	render() {

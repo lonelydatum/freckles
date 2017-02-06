@@ -44,9 +44,7 @@ class DrawOnCanvas {
 				reject(resultFail);
 			} )
 		}
-
 		return new Promise(fun);
-
 	}
 
 	addFontFace(fontName, ff, isDefault=true) {
