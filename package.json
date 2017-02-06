@@ -68,6 +68,7 @@
     "testEnvironment": "jsdom"
   },
   "dependencies": {
+    "gsap": "1.19.1",
     "rasterizehtml": "1.2.4",
     "to-css": "1.2.1"
   }
