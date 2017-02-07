@@ -9,7 +9,6 @@ let tween
 
 promise.then( ()=> {
 	tween = new Tween( main.stardust )
-
 main.play()
 } )
 

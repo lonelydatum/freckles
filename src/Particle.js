@@ -1,5 +1,5 @@
 import Vector from './Vector.js'
-import {TweenMax} from "gsap";
+// import {TweenMax} from "gsap";
 
 
 class Particle {
