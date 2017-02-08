@@ -1,25 +1,33 @@
-import Main, {Tween} from './index.js'
+import Stardust, {Tween} from './Stardust.js'
 import Fonts from './util/Fonts.js'
 
 
-const canvas = document.getElementById('art')
-const main = new Main(canvas, {color: 'yellow'})
-const promise = main.write('STAR DUST', {'font-size':88, color:'yellow', fontface:Fonts.bungee_outlineregular, top:120})
-let tween
+
+
+
+
+const stardust = new Stardust( document.getElementById('canvasDummy') )
+const promise = stardust.write(document.getElementById('stardust-css'))
+
+
+stardust.easing = Sine.easeOut
+
+
 
 promise.then( ()=> {
-	tween = new Tween( main.stardust )
-main.play()
+	let tween = new Tween( stardust.artReal )
+	stardust.play()
 } )
 
+
 window.corner_north = function() {
-	main.tweenTo( tween.word.n )
-	main.play()
+	stardust.tweenTo( tween.word.north )
+	stardust.play()
 }
 
 window.corner_south = function() {
-	main.tweenTo( tween.word.s )
-	main.play()
+	stardust.tweenTo( tween.word.south )
+	stardust.play()
 }
 
 

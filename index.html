@@ -5,20 +5,52 @@
 	<title>Stardust</title>
 	<style type="text/css">
 		canvas {
-			background-color: black;
+			background-color: #0088bc;
 		}
 	</style>
 </head>
 <body>
+	<div id="stardust-css" style='display: none;'>
+		<style>
+
+	      	body {
+	      		margin: 0;
+	      		padding: 0;
+	      	}
+
+	      	@font-face {
+				font-family: "Bungee";
+	          	src: url('./Bungee-Regular.woff') format('woff');
+	          	font-weight: normal;
+	          	font-style: normal;
+	      	}
+
+	      	h1 {
+				color: yellow;
+				font-family: Bungee;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+				padding: 0;
+				font-size: 93px;
+				margin:0;
+			}
+		</style>
+		<h1 style="color:#FFF100;">STAR DUST</h1>
+	</div>
+
 	<div id="stardust">
-		<canvas id="art" width="800" height="800"></canvas>
-		<button onclick="corner_north()">Corner N</button>
-		<button onclick="corner_south()">Corner S</button>
+		<canvas id="canvasDummy" width="800" height="300"></canvas>
 	</div>
 
 
-</body>
 
+	<button onclick="corner_north()">Corner N</button>
+	<button onclick="corner_south()">Corner S</button>
+
+
+</body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 <script src="static/bundle.js"></script>
 

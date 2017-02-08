@@ -1,4 +1,5 @@
 import Vector from './Vector.js'
+import {particleEase} from './util/Singleton.js'
 // import {TweenMax} from "gsap";
 
 
@@ -22,7 +23,7 @@ class Particle {
 
 		this.x = this.positionStatic._x
 		this.y = this.positionStatic._y
-		TweenLite.defaultEase = Back.easeInOut
+
 
 
 	}
@@ -70,7 +71,7 @@ class Particle {
 	// }
 
 	tween() {
-		TweenMax.to(this.positionDynamic, this.speed, {_x:this.positionStatic._x, _y:this.positionStatic._y})
+		TweenMax.to(this.positionDynamic, this.speed, {ease:particleEase, _x:this.positionStatic._x, _y:this.positionStatic._y})
 	}
 
 	// update_() {

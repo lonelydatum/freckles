@@ -36,10 +36,10 @@ class Tweener {
 		const center = {...this.rectSD.center}
 		const {w,h} = this.rectSD
 		return {
-				'n': this.rect(center.n.x, center.n.y, w, 0),
-				'e': this.rect(center.e.x, center.e.y, 0, h),
-				's': this.rect(center.s.x, center.s.y, w, 0),
-				'w': this.rect(center.w.x, center.w.y, 0, h)
+				'north': this.rect(center.n.x, center.n.y, w, 0),
+				'east': this.rect(center.e.x, center.e.y, 0, h),
+				'south': this.rect(center.s.x, center.s.y, w, 0),
+				'west': this.rect(center.w.x, center.w.y, 0, h)
 			}
 	}
 
@@ -47,10 +47,10 @@ class Tweener {
 		const center = {...this.rectSD.center}
 		const {w,h} = this.rectSD
 		return {
-				'n': this.rect(this.rectWord.centerX, this.rectSD.north, this.rectWord.w, 0 ),
-				'e': this.rect(this.rectSD.east, this.rectWord.centerY, 0, this.rectWord.h ),
-				's': this.rect(this.rectWord.centerX, this.rectSD.south, this.rectWord.w, 	0),
-				'w': this.rect(this.rectSD.west, this.rectWord.centerY, 0, 			this.rectWord.h),
+				'north': this.rect(this.rectWord.centerX, this.rectSD.north, this.rectWord.w, 0 ),
+				'east': this.rect(this.rectSD.east, this.rectWord.centerY, 0, this.rectWord.h ),
+				'south': this.rect(this.rectWord.centerX, this.rectSD.south, this.rectWord.w, 	0),
+				'west': this.rect(this.rectSD.west, this.rectWord.centerY, 0, 			this.rectWord.h),
 			}
 	}
 

@@ -1,102 +1,56 @@
-import FilterByColor from './util/FilterByColor.js'
-import {range} from './util/Helper.js'
-import Vector from './Vector.js'
-import Particle from './Particle.js'
+import ArtReal from './ArtReal.js'
+import ArtDummy from './ArtDummy.js'
+import Tween from './util/Tween.js'
 import Rect from './util/Rect.js'
+import _ from './util/gar-dash.js'
+import Singleton from './util/Singleton.js'
 
-
-const WIDTH = 500
-const HEIGHT = 500
-
-class StarDust {
-	constructor(dummyCanvas, canvas) {
-		this.dummyCanvas = dummyCanvas
+class Stardust {
+	constructor(canvas, styles) {
 		this.canvas = canvas
-		this.ctx = this.canvas.getContext('2d')
-		this.rect = new Rect(0, 0, canvas.width, canvas.height)
-		this.particles = []
-		this.tweenRect
-		this.filterByColor = new FilterByColor(this.dummyCanvas)
-		this.WIDTH = canvas.width
-		this.HEIGHT = canvas.height
+		this.artReal
+		this.artDummy = new ArtDummy( this.canvas, styles )
+		this.tweenToRect = new Rect(0,0,0,0)
+
+		this.defaultEase()
 	}
 
-	setDynamic(data) {
-		this.tweenRectPrev = this.tweenRect
-		this.tweenRect = data
+	set easing(ease) {
+		Singleton.partileEase = ease
 	}
 
-
-	getRectWord() {
-		return this.filterByColor.rectWord
+	defaultEase() {
+		TweenLite.defaultEase = Back.easeInOut
 	}
 
 
-	createParticles() {
-		if(this.particles.length<=0) {
-			this.createNewList()
-		}else {
-			this.reuseList()
-		}
+	write(html) {
+		html = _.get(html, 'innerHTML', 'Couldnt find innerHTML')
+		const promise = this.artDummy.write(html)
+		promise.then(this.createStardust.bind(this))
+		return promise
 	}
 
-	reuseList() {
-		this.particles.forEach((item)=>{
-			const vectorDynamic = this.createDynamic()
-			const vectorStatic = item.positionStatic
-			item.positionDynamic = vectorDynamic
-			var angleRadians = Math.atan2(vectorStatic._y - vectorDynamic._y, vectorStatic._x - vectorDynamic._x);
-			item.velocity.setAngle(angleRadians)
-		})
+	createStardust(result) {
+		this.artReal = new ArtReal( this.artDummy.canvasDummy, this.canvas )
 	}
 
-	createNewList() {
-		this.particles = this.filterByColor.list.map((listItem, index)=>{
-			return this.createParticleItem(listItem, index)
-		})
+	tweenTo(r) {
+		this.tweenToRect = r
 	}
 
-	createDynamic() {
-		const {x, y} = this.tweenRect.getRandomPoint()
-		const v = new Vector(x, y)
-		return v
-	}
-
-	createParticleItem(staticItem, index) {
-		const vectorDynamic = this.createDynamic()
-		const vectorStatic = new Vector(staticItem.x, staticItem.y)
-		var angleRadians = Math.atan2(staticItem.y - vectorDynamic._y, staticItem.x - vectorDynamic._x);
-		const particle = new Particle(
-			vectorDynamic,
-			vectorStatic,
-			range(2, 4),
-			angleRadians,
-			staticItem.rgba,
-			index
-		)
-
-
-		return particle
-	}
-
-	tween() {
-		this.particles.forEach((particleItem)=>{
-			particleItem.tween()
-		})
+	play() {
+		this.artReal.setDynamic(this.tweenToRect)
+		this.artReal.createParticles()
+		this.artReal.tween()
+		this.render()
+		console.log(this.artReal.particles.length);
 	}
 
 	render() {
-		this.ctx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
-		this.particles.forEach( (p) =>{
-			this.ctx.fillStyle = p.rgbaString
-
-			this.ctx.fillRect(p.positionDynamic._x, p.positionDynamic._y, 1, 1)
-		} )
+		this.artReal.render()
+		requestAnimationFrame(this.render.bind(this))
 	}
 }
 
-
-
-
-
-export default StarDust
+export {Stardust as default, Tween}
