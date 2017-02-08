@@ -5,6 +5,7 @@ import Rect from './util/Rect.js'
 import _ from './util/gar-dash.js'
 import Singleton from './util/Singleton.js'
 
+
 class Stardust {
 	constructor(canvas, styles) {
 		this.canvas = canvas
@@ -12,16 +13,14 @@ class Stardust {
 		this.artDummy = new ArtDummy( this.canvas, styles )
 		this.tweenToRect = new Rect(0,0,0,0)
 
-		this.defaultEase()
+
 	}
 
 	set easing(ease) {
 		Singleton.partileEase = ease
 	}
 
-	defaultEase() {
-		TweenLite.defaultEase = Back.easeInOut
-	}
+
 
 
 	write(html) {
