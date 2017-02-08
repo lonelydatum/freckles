@@ -1,6 +1,6 @@
 import Vector from './Vector.js'
 import {particleEase} from './util/Singleton.js'
-import {TweenMax} from "gsap";
+import TweenMax from "gsap";
 
 
 class Particle {
