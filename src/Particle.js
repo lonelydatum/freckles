@@ -1,11 +1,11 @@
 import Vector from './Vector.js'
 import {particleEase} from './util/Singleton.js'
-import TweenMax from "gsap";
+// import TweenLite from 'gsap';
 
+console.log(TweenLite);
 
 class Particle {
 	constructor(vectorDynamic, vectorStatic, speed, direction, rgba={r:0,g:0,b:0,a:1}, index=0) {
-
 		this.rgba = rgba
 		// this.rgbaString = `rgba(${rgba.r}, ${rgba.g}, ${rgba.b}, ${rgba.a})`
 		this.rgbaString = `rgba(${rgba.r}, ${rgba.g}, ${rgba.b}, ${rgba.a})`
@@ -20,14 +20,9 @@ class Particle {
 		this.playX = true
 		this.playY = true
 		this.speed = speed
-
 		this.x = this.positionStatic._x
 		this.y = this.positionStatic._y
-
-
-
 	}
-
 
 
 	checkToMove() {
@@ -71,7 +66,7 @@ class Particle {
 	// }
 
 	tween() {
-		TweenMax.to(this.positionDynamic, this.speed, {ease:particleEase, _x:this.positionStatic._x, _y:this.positionStatic._y})
+		// TweenLite.to(this.positionDynamic, this.speed, {ease:particleEase, _x:this.positionStatic._x, _y:this.positionStatic._y})
 	}
 
 	// update_() {

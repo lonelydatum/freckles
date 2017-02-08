@@ -70,7 +70,7 @@ class ArtReal {
 		const particle = new Particle(
 			vectorDynamic,
 			vectorStatic,
-			range(2, 4),
+			range(1, 10),
 			angleRadians,
 			staticItem.rgba,
 			index
