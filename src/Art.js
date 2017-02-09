@@ -31,8 +31,7 @@ class Art {
 
 
 	tween(tweenOptions) {
-
-		const {toFrom} = tweenOptions
+		const { toFrom } = tweenOptions
 		const tl = new TimelineMax()
 
 		this.particles.forEach((particleItem)=>{
@@ -44,7 +43,6 @@ class Art {
 				tweenOptions.startTime
 			)
 		})
-
 		return tl
 	}
 

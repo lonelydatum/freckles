@@ -39,7 +39,7 @@ const tweenOptions_home = stardust1.createOptions(
 const tl = new TimelineMax()
 
 
-stardust1.write( werd1.css, tweenOptions ).then( ()=>{
+stardust1.write( werd1.css ).then( ()=>{
 	tl.add( stardust1.tween(tweenOptions) )
 } )
 

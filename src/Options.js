@@ -3,7 +3,7 @@ import Rect from './util/Rect.js'
 import {range} from './util/Helper.js'
 
 class Options {
-	constructor(toFrom='to', speed={min:1, max:3}, tweenProps={xy:'HOME'}, startTime) {
+	constructor(toFrom='to', speed={min:1, max:3}, tweenProps, startTime=0) {
 		this.toFrom = toFrom
 
 		this.signals = {
@@ -12,7 +12,9 @@ class Options {
 
 
 
+		this.tweenProps = {
 
+		}
 
 		this.setSpeed(speed)
 		this.setTweenProps(tweenProps)

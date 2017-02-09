@@ -19,7 +19,7 @@ class Stardust {
 		return new Options(toFrom, speed, tweenProps, startTime)
 	}
 
-	write(html, tweenOptions=this.createOptions(), autoPlay=true) {
+	write(html, tweenOptions) {
 
 		html = _.get(html, 'innerHTML', 'Couldnt find innerHTML')
 		const promise = new Promise((good, bad)=>{
@@ -31,12 +31,12 @@ class Stardust {
 			})
 		})
 
-		promise.then(this.onDummyLoaded.bind(this, tweenOptions, autoPlay))
+		promise.then(this.onDummyLoaded.bind(this, tweenOptions))
 		return promise
 	}
 
 
-	onDummyLoaded(tweenOptions, autoPlay, result) {
+	onDummyLoaded(tweenOptions, result) {
 		const canvasCloned = this.canvasCloned
 		if(IsCanvasBlank(canvasCloned)){
 			ClearCanvas(canvasCloned)
@@ -45,7 +45,7 @@ class Stardust {
 		this.art = new Art( this.canvas )
 		this.art.write( canvasCloned )
 
-		if(autoPlay) {
+		if(tweenOptions) {
 			this.tween(tweenOptions)
 		}
 	}
