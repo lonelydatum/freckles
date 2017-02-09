@@ -1,5 +1,6 @@
-import {Bounce} from 'gsap'
+import TweenMax from 'gsap'
+
 
 export default {
-  particleEase: Bounce.easeOut
+  ease: Bounce.easeOut
 };

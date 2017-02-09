@@ -1,9 +1,9 @@
 import Rect from './Rect.js'
 
 class Tweener {
-	constructor(stardust) {
-		this.rectWord = stardust.getRectWord()
-		this.rectSD = stardust.rect
+	constructor(rectWord, rect) {
+		this.rectWord = rectWord
+		this.rectSD = rect
 		this.point = {w:0, h:0}
 		const center = {...this.rectSD.center}
 		const corner = {...this.rectSD.corner}
@@ -14,10 +14,10 @@ class Tweener {
 		const {w,h} = this.point
 		return {
 			'center': this.rect(center.center.x, center.center.y, w, h),
-			'n': this.rect(center.n.x, center.n.y, w, h),
-			'e': this.rect(center.e.x, center.e.y, w, h),
-			's': this.rect(center.s.x, center.s.y, w, h),
-			'w': this.rect(center.w.x, center.w.y, w, h),
+			'north': this.rect(center.n.x, center.n.y, w, h),
+			'east': this.rect(center.e.x, center.e.y, w, h),
+			'south': this.rect(center.s.x, center.s.y, w, h),
+			'west': this.rect(center.w.x, center.w.y, w, h),
 		}
 	}
 
@@ -57,6 +57,38 @@ class Tweener {
 	rect(x, y, w, h) {
 		return new Rect(x, y, w, h, {originX:.5, originY:.5})
 	}
+
+	getRectFromLabel(a) {
+		return this[a[0]][a[1]]
+	}
+}
+
+Tweener.word = {
+	north: ['word', 'north'],
+	south: ['word', 'south'],
+	east: ['word', 'east'],
+	west: ['word', 'west']
+}
+
+Tweener.line = {
+	north: ['line', 'north'],
+	south: ['line', 'south'],
+	east: ['line', 'east'],
+	west: ['line', 'west']
+}
+
+Tweener.center = {
+	north: ['center', 'north'],
+	south: ['center', 'south'],
+	east: ['center', 'east'],
+	west: ['center', 'west']
+}
+
+Tweener.corner = {
+	ne: ['corner', 'ne'],
+	nw: ['corner', 'nw'],
+	se: ['corner', 'se'],
+	sw: ['corner', 'sw']
 }
 
 export default Tweener

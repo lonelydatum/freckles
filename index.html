@@ -31,23 +31,56 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
+				width:100%;
+				height: 100vh;
+				padding: 0;
+				font-size: 93px;
+				margin:0;
+				/*border: 10px solid green;*/
+			}
+		</style>
+		<h1 style="color:#FFF100;">
+			hello
+		</h1>
+	</div>
+
+	<div id="stardust-css-2" style='display: none;'>
+		<style>
+
+	      	body {
+	      		margin: 0;
+	      		padding: 0;
+	      	}
+
+	      	@font-face {
+				font-family: "Bungee";
+	          	src: url('./Bungee-Regular.woff') format('woff');
+	          	font-weight: normal;
+	          	font-style: normal;
+	      	}
+
+	      	h1 {
+				color: yellow;
+				font-family: Bungee;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				height: 100vh;
 				padding: 0;
 				font-size: 93px;
 				margin:0;
 			}
 		</style>
-		<h1 style="color:#FFF100;">STAR DUST</h1>
+		<h1 style="color:#FFF100;">.</h1>
 	</div>
 
 	<div id="stardust">
-		<canvas id="canvasDummy" width="800" height="300"></canvas>
+		<canvas id="canvas" width="800" height="600"></canvas>
+		<!-- <canvas id="canvas2" width="800" height="300"></canvas> -->
 	</div>
 
 
 
-	<button onclick="corner_north()">Corner N</button>
-	<button onclick="corner_south()">Corner S</button>
 
 
 </body>
