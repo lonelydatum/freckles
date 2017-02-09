@@ -18,6 +18,8 @@ class Art {
 		this.particles = this.filterByColor.list.map((listItem)=>{
 			return this.createParticleItem(listItem)
 		})
+
+		this.render()
 	}
 
 	createParticleItem(staticItem) {
