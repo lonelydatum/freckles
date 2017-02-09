@@ -13,22 +13,7 @@ const werd1 = {
 
 let stardust1 = new Stardust( werd1.canvas )
 
-const tweenOptions = stardust1.createOptions(
-	'to',
-	{min:.2, max:3},
-	{ xy: seXY.CENTER_WEST(stardust1.rect), ease: Sine.easeIn},
-	1
-)
 
-
-
-const tweenOptions_home = stardust1.createOptions(
-	'from',
-	{min:.1, max:5},
-	{ xy: 'HOME',
-	ease:Bounce.easeOut },
-	0
-)
 
 
 
@@ -40,7 +25,34 @@ const tl = new TimelineMax()
 
 
 stardust1.write( werd1.css ).then( ()=>{
+	const r = seXY.CANVAS_EAST(stardust1.rect)
+
+
+	const tweenOptions = stardust1.createOptions(
+		'to',
+		{min:.2, max:1},
+		{ xy: r, ease: Sine.easeIn},
+		1
+	)
+
+	const tweenOptions_2 = stardust1.createOptions(
+		'to',
+		{min:.2, max:1},
+		{ xy: 'HOME', ease: Sine.easeIn},
+		1
+	)
+
+	const tweenOptions_3 = stardust1.createOptions(
+		'to',
+		{min:.2, max:1},
+		{ xy: seXY.CONTENT_WEST(stardust1.rect, stardust1.rectContent), ease: Sine.easeIn},
+		1
+	)
+
 	tl.add( stardust1.tween(tweenOptions) )
+	tl.add( stardust1.tween(tweenOptions_2) )
+	tl.add( stardust1.tween(tweenOptions_3) )
+
 } )
 
 
