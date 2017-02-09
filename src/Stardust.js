@@ -58,4 +58,4 @@ class Stardust {
 
 }
 
-export {Stardust as default, Tween, Rect}
+export {Stardust as default, Tween, Rect, Options}

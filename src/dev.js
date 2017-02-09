@@ -1,6 +1,6 @@
-import Stardust, {Tween, Rect} from './Stardust.js'
+import Stardust, {Tween, Rect, Options} from './Stardust.js'
 import TweenMax from 'gsap'
-import Options from './Options.js'
+
 
 
 
@@ -15,8 +15,8 @@ const from = new Options({
 	rect: new Rect(0, -10, 800, 10),
 	speedMin:1,
 	speedMax:3})
-// let stardust1 = new Stardust( werd1.canvas )
-// stardust1.write( werd1.css, from )
+let stardust1 = new Stardust( werd1.canvas )
+stardust1.write( werd1.css, from )
 
 
 
