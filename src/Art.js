@@ -1,10 +1,7 @@
 import FilterByColor from './util/FilterByColor.js'
-import Tween from './util/Tween.js'
 import {range} from './util/Helper.js'
 import Vector from './Vector.js'
 import Particle from './Particle.js'
-import Rect from './util/Rect.js'
-import Singleton from './util/Singleton.js'
 
 
 class Art {
@@ -16,24 +13,12 @@ class Art {
 		this.HEIGHT = canvas.height
 	}
 
-	write(canvasCloned, options) {
+	write(canvasCloned) {
 		this.filterByColor = new FilterByColor(canvasCloned)
-
-
 		this.particles = this.filterByColor.list.map((listItem)=>{
 			return this.createParticleItem(listItem)
 		})
-
-
-		if(options.inOut==="COME_TOGETHER") {
-			this.comeTogether(options)
-		}else{
-			this.breakApart(options)
-		}
-		this.render()
 	}
-
-
 
 	createParticleItem(staticItem) {
 		const vectorStatic = new Vector(staticItem.x, staticItem.y)
@@ -43,21 +28,27 @@ class Art {
 		)
 		return particle
 	}
-	// new list //
 
-	comeTogether(options) {
+
+	tween(tweenOptions) {
+
+		const {toFrom} = tweenOptions
+		const tl = new TimelineMax()
+
 		this.particles.forEach((particleItem)=>{
-			const obj = options.tween
-			particleItem.tweenComeTogether(obj.tweenData, obj.speed)
+			const obj = tweenOptions.getTweenData(particleItem.positionStatic)
+			tl[toFrom](
+				particleItem.positionDynamic,
+				obj.speed,
+				obj.tweenData,
+				tweenOptions.startTime
+			)
 		})
+
+		return tl
 	}
 
-	breakApart(options) {
-		this.particles.forEach((particleItem)=>{
-			const obj = options.tween
-			particleItem.tweenBreakApart(obj.tweenData, obj.speed)
-		})
-	}
+
 
 	render() {
 		this.ctx.clearRect(0, 0, this.WIDTH, this.HEIGHT);

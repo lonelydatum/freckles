@@ -63,6 +63,8 @@ class Tweener {
 	}
 }
 
+
+
 Tweener.word = {
 	north: ['word', 'north'],
 	south: ['word', 'south'],

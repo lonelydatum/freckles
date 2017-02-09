@@ -2,7 +2,7 @@ import Vector from './Vector.js'
 import Singleton from './util/Singleton.js'
 
 
-// console.log(TweenLite);
+// console.log(TweenMax);
 
 class Particle {
 	constructor(vectorStatic, rgba={r:0,g:0,b:0,a:1}) {
@@ -10,6 +10,9 @@ class Particle {
 		this.rgbaString = `rgba(${rgba.r}, ${rgba.g}, ${rgba.b}, ${rgba.a})`
 		this.positionStatic = vectorStatic
 		this.positionDynamic = {...this.positionStatic}
+
+		this.x = this.positionStatic.x
+		this.y = this.positionStatic.y
 	}
 
 	setPositionDynamic(v) {
@@ -17,17 +20,19 @@ class Particle {
 	}
 
 	tweenComeTogether(tweenTo, speed) {
+		console.log(tweenTo);
 		const delay = Math.random() * .7
-		TweenLite.fromTo(
+		TweenMax.fromTo(
 			this.positionDynamic,
 			speed,
-			tweenTo,
-			{...this.positionStatic, delay} )
+			{...tweenTo},
+			{...this.positionStatic} )
 	}
 
 	tweenBreakApart(tweenTo, speed) {
+
 		const delay = Math.random() * .7
-		TweenLite.fromTo(
+		TweenMax.fromTo(
 			this.positionDynamic,
 			speed,
 			this.positionStatic,
@@ -35,7 +40,7 @@ class Particle {
 	}
 
 	leave() {
-		TweenLite.to(this.positionDynamic, this.speed, {
+		TweenMax.to(this.positionDynamic, this.speed, {
 			ease:Singleton.ease,
 			_x:this.positionLeave._x,
 			_y:this.positionLeave._y})

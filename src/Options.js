@@ -3,49 +3,93 @@ import Rect from './util/Rect.js'
 import {range} from './util/Helper.js'
 
 class Options {
-	constructor(data, inOut="COME_TOGETHER") {
-		this.inOut = inOut
+	constructor(toFrom='to', speed={min:1, max:3}, tweenProps={xy:'HOME'}, startTime) {
+		this.toFrom = toFrom
+
 		this.signals = {
 			speedMin: new Signals()
 		}
 
-		this.data = {
-			speedMin:1,
-			speedMax:5,
-			rect: new Rect(0,0,50,50)
+
+
+
+
+		this.setSpeed(speed)
+		this.setTweenProps(tweenProps)
+
+
+
+
+
+		this.startTime = startTime
+
+
+
+
+
+
+	}
+
+
+	setTweenProps(tweenProps) {
+		if(tweenProps.xy instanceof Rect) {
+
+		}else if( tweenProps.xy === "HOME"){
+			this.toFrom = 'to'
 		}
 
-		this.data = {...this.data, ...data}
+		this.tweenProps = {...this.tweenProps, ...tweenProps}
 	}
 
-	get speedMin() {
-		return this.data.speedMin
-	}
-	get speedMax() {
-		return this.data.speedMax
-	}
+	getXY(tweenProps, homeXY) {
 
-
-	get rect() {
-		return this.data.rect
-	}
-
-	get tween() {
-		const point = this.rect.getRandomPoint()
-		const tweenData = {
-			x: point.x,
-			y: point.y
+		if(tweenProps.xy instanceof Rect) {
+			const randomPoint = tweenProps.xy.getRandomPoint()
+			return {
+				...tweenProps,
+				...randomPoint
+			}
+		}else if( tweenProps.xy === "HOME"){
+			return {...tweenProps, ...homeXY}
 		}
-		const speed = range(this.speedMin, this.speedMax)
-		return {
-			speed, tweenData
+	}
+
+	setSpeed(speed) {
+		const type = typeof(speed)
+		if(type === 'number') {
+			this.speed = speed
+		}else if(type === 'object'){
+			this.speed = {...this.speed, ...speed}
 		}
+	}
+
+	getSpeed(speed) {
+		const type = typeof(speed)
+		if(type === 'number') {
+			return this.speed
+		}else if(type === 'object'){
+			return range(this.speed.min, this.speed.max)
+		}
+	}
+
+
+
+
+	getTweenData(homeXY) {
+
+		const tweenData = this.getXY(this.tweenProps, homeXY)
+
+
+
+
+
+		const speed = this.getSpeed(this.speed)
+
+		return {speed, tweenData}
 	}
 
 
 }
 
-Options.BREAK_APART = 'BREAK_APART'
-Options.COME_TOGETHER = 'COME_TOGETHER'
 
 export default Options

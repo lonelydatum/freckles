@@ -1,34 +1,57 @@
-import Stardust, {Tween, Rect, Options} from './Stardust.js'
+import Stardust, {Rect, seXY} from './Stardust.js'
 import TweenMax from 'gsap'
+
 
 
 
 
 const werd1 = {
 	canvas: document.getElementById('canvas'),
-	css: document.getElementById('stardust-css')
+	css: document.getElementById('stardust-css-2')
 }
 
 
-
-const from = new Options({
-	rect: new Rect(0, -10, 800, 10),
-	speedMin:1,
-	speedMax:3})
 let stardust1 = new Stardust( werd1.canvas )
-stardust1.write( werd1.css, from )
+
+const tweenOptions = stardust1.createOptions(
+	'to',
+	{min:.2, max:3},
+	{ xy: seXY.CENTER_WEST(stardust1.rect), ease: Sine.easeIn},
+	1
+)
+
+
+
+const tweenOptions_home = stardust1.createOptions(
+	'from',
+	{min:.1, max:5},
+	{ xy: 'HOME',
+	ease:Bounce.easeOut },
+	0
+)
+
+
+
+
+
+
+
+const tl = new TimelineMax()
+
+
+stardust1.write( werd1.css, tweenOptions ).then( ()=>{
+	tl.add( stardust1.tween(tweenOptions) )
+} )
 
 
 
 // setTimeout(()=>{
-// 	const breakApart = new Options({
-// 			rect: new Rect(0, 610, 800, 10),
-// 			speedMax:2,
-// 		},
-// 		Options.BREAK_APART
-// 	)
-// 	stardust1.breakApart(breakApart)
-// }, 5000)
+// 	tl.add( stardust1.tween(tweenOptions_home) )
+// }, 4000)
+
+// setTimeout(()=>{
+// 	stardust1.tween(tweenOptions)
+// }, 2000)
 
 
 
