@@ -10,7 +10,7 @@ class Options {
 			speedMin: new Signals()
 		}
 
-
+		this.startTime = startTime
 
 		this.tweenProps = {
 
@@ -19,27 +19,16 @@ class Options {
 		this.setSpeed(speed)
 		this.setTweenProps(tweenProps)
 
-
-
-
-
-		this.startTime = startTime
-
-
-
-
-
-
 	}
 
+	isHome() {
+		return (this.tweenProps.xy === 'HOME')
+	}
 
 	setTweenProps(tweenProps) {
-		if(tweenProps.xy instanceof Rect) {
-
-		}else if( tweenProps.xy === "HOME"){
+		if( tweenProps.xy === "HOME"){
 			this.toFrom = 'to'
 		}
-
 		this.tweenProps = {...this.tweenProps, ...tweenProps}
 	}
 
