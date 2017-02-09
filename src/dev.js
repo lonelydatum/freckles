@@ -15,20 +15,20 @@ const from = new Options({
 	rect: new Rect(0, -10, 800, 10),
 	speedMin:1,
 	speedMax:3})
-let stardust1 = new Stardust( werd1.canvas )
-stardust1.write( werd1.css, from )
+// let stardust1 = new Stardust( werd1.canvas )
+// stardust1.write( werd1.css, from )
 
 
 
-setTimeout(()=>{
-	const breakApart = new Options({
-			rect: new Rect(0, 610, 800, 10),
-			speedMax:2,
-		},
-		Options.BREAK_APART
-	)
-	stardust1.breakApart(breakApart)
-}, 5000)
+// setTimeout(()=>{
+// 	const breakApart = new Options({
+// 			rect: new Rect(0, 610, 800, 10),
+// 			speedMax:2,
+// 		},
+// 		Options.BREAK_APART
+// 	)
+// 	stardust1.breakApart(breakApart)
+// }, 5000)
 
 
 
