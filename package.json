@@ -2,7 +2,7 @@
   "name": "star-dust",
   "version": "0.0.0-development",
   "description": "make particles",
-  "main": "./dist/index.umd.min.js",
+  "main": "./dist/index.umd.js",
   "scripts": {
     "start": "node server.js",
     "commit": "git-cz",
