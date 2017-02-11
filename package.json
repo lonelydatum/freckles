@@ -69,6 +69,7 @@
   },
   "dependencies": {
     "gsap": "1.19.1",
+    "pixi.js": "4.3.5",
     "rasterizehtml": "1.2.4",
     "signals": "1.0.0",
     "to-css": "1.2.1",

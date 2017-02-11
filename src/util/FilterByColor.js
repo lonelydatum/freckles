@@ -32,6 +32,14 @@ class FilterByColor {
 
 	}
 
+	rgb2hex(rgba){
+	 	return "0x" +
+	  		("0" + parseInt(rgba.r,10).toString(16)).slice(-2) +
+	  		("0" + parseInt(rgba.g,10).toString(16)).slice(-2) +
+	  		("0" + parseInt(rgba.b,10).toString(16)).slice(-2);
+	}
+
+
 	getNonTransparentPixels(context) {
 
 		const rect = new Rect(0, 0, context.canvas.width, context.canvas.height)
@@ -57,7 +65,8 @@ class FilterByColor {
 
 
 			if(rgba.a > 0) {
-				const item = {rgba, x, y}
+				const hex = this.rgb2hex(rgba)
+				const item = {rgba, x, y, hex}
 				this.tmpX = x;
 		    	if (this.tmpX < this.minMax.min.x) this.minMax.min.x = this.tmpX;
 		    	if (this.tmpX > this.minMax.max.x) this.minMax.max.x = this.tmpX;
@@ -66,7 +75,7 @@ class FilterByColor {
 		    	if (this.tmpY < this.minMax.min.y) this.minMax.min.y = this.tmpY;
 		    	if (this.tmpY > this.minMax.max.y) this.minMax.max.y = this.tmpY;
 
-				list.push(item);
+				list.push(item)
 			}
 
 			indexForPos++

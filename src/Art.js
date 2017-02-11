@@ -34,23 +34,24 @@ class Art {
 
 	tween(tweenOptions) {
 		const { toFrom } = tweenOptions
-		const tl = new TimelineMax()
+
 
 		this.particles.forEach((particleItem)=>{
 			const obj = tweenOptions.getTweenData(particleItem.positionStatic)
-			tl[toFrom](
+			TweenLite[toFrom](
 				particleItem.positionDynamic,
 				obj.speed,
-				obj.tweenData,
-				tweenOptions.startTime
+				obj.tweenData
 			)
 		})
-		return tl
+
+		// TweenLite.ticker.addEventListener("tick", this.render.bind(this));
 	}
 
 
 
 	render() {
+
 		this.ctx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
 		this.particles.forEach( (p) =>{
 			this.ctx.fillStyle = p.rgbaString
