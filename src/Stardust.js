@@ -48,14 +48,15 @@ class Stardust {
 		if(tweenOptions) {
 			this.tween(tweenOptions)
 		}
+		this.render()
 	}
 
 
 
 	tween(tweenOptions) {
-		const tl = this.art.tween(tweenOptions)
-		this.render()
-		return tl
+		this.art.tween(tweenOptions)
+
+
 	}
 
 

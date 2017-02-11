@@ -25,9 +25,7 @@ const tl = new TimelineMax()
 
 
 stardust1.write( werd1.css ).then( ()=>{
-	const r = seXY.CONTENT_SOUTH(stardust1.rect, stardust1.rectContent)
-
-
+	let r = seXY.CONTENT_SOUTH(stardust1.rect, stardust1.rectContent)
 	const tweenOptions = stardust1.createOptions(
 		'to',
 		{min:.2, max:5},
@@ -38,26 +36,37 @@ stardust1.write( werd1.css ).then( ()=>{
 	const tweenOptions_2 = stardust1.createOptions(
 		'to',
 		{min:1, max:3},
-		{ xy: 'HOME', ease:Linear.easeNone, delay:1},
+		{ xy: 'HOME', ease:Back.easeOut},
 		1
 	)
-
-	const tweenOptions_3 = stardust1.createOptions(
-		'to',
-		{min:.2, max:1},
-		{ xy: seXY.CONTENT_WEST(stardust1.rect, stardust1.rectContent), ease: Sine.easeIn},
-		1
-	)
-
-
-
 	stardust1.tween(tweenOptions)
-
 	setTimeout( ()=>{
 		stardust1.tween(tweenOptions_2)
 	}, 6000 )
 
+	stardust1.tween(tweenOptions)
 
+
+	setTimeout( ()=>{
+		const tweenOptions_3 = stardust1.createOptions(
+		'to',
+		{min:1, max:3},
+		{ xy: seXY.CONTENT_EAST(stardust1.rect, stardust1.rectContent), ease:Back.easeOut},
+		1
+	)
+		stardust1.tween(tweenOptions_3)
+	}, 10000 )
+
+
+	setTimeout( ()=>{
+		const tweenOptions_3 = stardust1.createOptions(
+		'to',
+		{min:1, max:3},
+		{ xy: 'HOME', ease:Elastic.easeOut},
+		1
+	)
+		stardust1.tween(tweenOptions_3)
+	}, 13000 )
 } )
 
 

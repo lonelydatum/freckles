@@ -65,8 +65,7 @@ class FilterByColor {
 
 
 			if(rgba.a > 0) {
-				const hex = this.rgb2hex(rgba)
-				const item = {rgba, x, y, hex}
+				const item = {rgba, x, y}
 				this.tmpX = x;
 		    	if (this.tmpX < this.minMax.min.x) this.minMax.min.x = this.tmpX;
 		    	if (this.tmpX > this.minMax.max.x) this.minMax.max.x = this.tmpX;

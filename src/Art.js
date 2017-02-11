@@ -34,18 +34,14 @@ class Art {
 
 	tween(tweenOptions) {
 		const { toFrom } = tweenOptions
-
-
 		this.particles.forEach((particleItem)=>{
 			const obj = tweenOptions.getTweenData(particleItem.positionStatic)
 			TweenLite[toFrom](
-				particleItem.positionDynamic,
-				obj.speed,
-				obj.tweenData
+				particleItem,
+				2,
+				{...obj.tweenData, delay:obj.speed}
 			)
 		})
-
-		// TweenLite.ticker.addEventListener("tick", this.render.bind(this));
 	}
 
 
@@ -55,7 +51,7 @@ class Art {
 		this.ctx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
 		this.particles.forEach( (p) =>{
 			this.ctx.fillStyle = p.rgbaString
-			this.ctx.fillRect(p.positionDynamic.x, p.positionDynamic.y, 1, 1)
+			this.ctx.fillRect(p.x, p.y, 1, 1)
 		} )
 	}
 }
