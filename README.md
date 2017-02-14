@@ -66,7 +66,7 @@ Freckles is a particle library that rasterizes DOM elements to the canvas so tha
 </html>
 ```
 
-#####npm
+##npm
 ```npm install -S freckles```
 
 ```
