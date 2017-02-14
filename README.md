@@ -4,7 +4,7 @@ Freckles is a particle library that rasterizes DOM elements to the canvas so tha
 
 
 ##Usage:
-###Script tag
+###CDN
 ```
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/freckles@1.1.0/dist/index.umd.min.js"></script>
@@ -14,6 +14,8 @@ Freckles is a particle library that rasterizes DOM elements to the canvas so tha
 ###npm
 npm install -S freckles
 
+
+##Stuff that you want to raseterize to particles:
 ```
 <div id="freckles">
   <style>
