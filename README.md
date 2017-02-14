@@ -21,13 +21,9 @@ npm install -S freckles
       margin: 0;
       padding: 0;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-weight: 900;
     }
 
     p {
-      /*border: 1px solid red;*/
-      font-size: 55px;
-      color: #f93e3e;
       margin:0;
       height: 500px;
       line-height: 500px;
