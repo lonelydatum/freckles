@@ -70,6 +70,8 @@ promise.then(function() {
     speed: [.1, 1]
   }
   freckles.tweenTo(r, options)
+  //freckles.tweenFrom(r, options)
+  //freckles.tweenHome(options)
 }
 ```
 ##Presets
