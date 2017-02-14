@@ -116,6 +116,12 @@ r = FrecklesUtility.PresetRect.CANVAS_WEST(freckles.rect)
 ```
 
 
-
+##Cusomize
+Can you get access to the freckles.particles and loop through it to do custom tweens.
+```
+freckles.particles.forEach( particleItem=>{
+	TweenLite.to(particleItem, speed, {x, y} )
+})
+```
 
 Here is a demo from codepen: http://codepen.io/lonelydatum/pen/qRgQxP
