@@ -72,7 +72,7 @@ promise.then(function() {
   freckles.tweenTo(r, options)
   //freckles.tweenFrom(r, options)
   //freckles.tweenHome(options)
-}
+})
 ```
 ##Presets
 Want to move the particles to the corner, edges, ect of the canvas. Here are all the presets from
