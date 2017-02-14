@@ -2,6 +2,7 @@ import FilterByColor from './util/FilterByColor.js'
 import {range} from './util/Helper.js'
 import Vector from './Vector.js'
 import Particle from './Particle.js'
+import Rect from './util/Rect.js'
 
 
 class Art {
@@ -18,7 +19,6 @@ class Art {
 		this.particles = this.filterByColor.list.map((listItem)=>{
 			return this.createParticleItem(listItem)
 		})
-
 		this.render()
 	}
 
@@ -32,17 +32,17 @@ class Art {
 	}
 
 
-	tween(fromTo, rect, options) {
+	tween(fromTo, rect, options={delay:[.5, 1]}) {
+		let defaultOptions = {speed:2}
+		let newOptions = {...defaultOptions, ...options}
 		this.particles.forEach((particleItem)=>{
-			const xy = rect.getRandomPoint()
-			const props = this.loopToRange(options)
-
-			const pp = {...xy, ...props}
-
+			const xy = (rect instanceof Rect) ? rect.getRandomPoint() : particleItem.positionStatic
+			const props = this.loopToRange(newOptions)
+			const propsCombined = {...xy, ...props}
 			TweenMax[fromTo](
 				particleItem,
-				2,
-				pp
+				propsCombined.speed,
+				propsCombined
 			)
 		})
 	}
@@ -61,19 +61,22 @@ class Art {
 	}
 
 
-	tweenTo(rect, options={delay:[.5, 1]}) {
+	tweenTo(rect, options) {
 		this.tween('to', rect, options )
 	}
 
-	tweenFrom(rect, options={delay:[.5, 1]}) {
+	tweenFrom(rect, options) {
 		this.tween('from', rect, options )
+	}
+
+	tweenHome(options) {
+		this.tween('to', 'HOME', options )
 	}
 
 
 
 
 	render() {
-
 		this.ctx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
 		this.particles.forEach( (p) =>{
 			this.ctx.fillStyle = p.rgbaString

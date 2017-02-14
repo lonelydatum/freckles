@@ -46,7 +46,9 @@ class Freckles {
 	}
 
 
-
+	tweenHome(options){
+		this.art.tweenHome(options)
+	}
 
 
 	tweenTo(rect, options){

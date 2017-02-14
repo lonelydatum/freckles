@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Freckles</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+	<style type="text/css">
+		#content {
+			display: none;
+		}
+		body{
+			display: flex;
+			height: 100vh;
+			justify-content: center;
+			align-items: center;
+		}
+		canvas {
+			background-color: #CCC;
+		}
+	</style>
+
+</head>
+
+
+<body>
+
+	<div id="content">
+		<style>
+			@font-face {
+				font-family: "Bungee";
+				src: url('./Bungee-Regular.woff') format('woff');
+				font-weight: normal;
+				font-style: normal;
+			}
+
+			body{
+				margin: 0;
+				padding: 0;
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				font-weight: 900;
+			}
+
+			p {
+				/*border: 1px solid red;*/
+				font-size: 55px;
+				margin:0;
+				height: 500px;
+  				line-height: 500px;
+  				text-align: center;
+
+			}
+		</style>
+		<p>.</p>
+	</div>
+
+	<canvas id="canvas" width="500" height="500" />
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/freckles@1.0.0/dist/index.umd.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/freckles@1.0.0/dist/utilities.umd.min.js"></script>
+
+
+
+<script>
+	var freckles = new Freckles(document.getElementById('canvas'))
+	var promise = freckles.write(document.getElementById('content'))
+	promise.then(function () {
+		let r
+		r = FrecklesUtility.PresetRect.CONTENT_NORTH(freckles.rect, freckles.rectContent)
+    r = FrecklesUtility.PresetRect.CONTENT_EAST(freckles.rect, freckles.rectContent)
+    r = FrecklesUtility.PresetRect.CONTENT_SOUTH(freckles.rect, freckles.rectContent)
+    r = FrecklesUtility.PresetRect.CONTENT_WEST(freckles.rect, freckles.rectContent)
+
+    r = FrecklesUtility.PresetRect.CENTER_NORTH(freckles.rect)
+    r = FrecklesUtility.PresetRect.CENTER_EAST(freckles.rect)
+    r = FrecklesUtility.PresetRect.CENTER_SOUTH(freckles.rect)
+    r = FrecklesUtility.PresetRect.CENTER_WEST(freckles.rect)
+
+    r = FrecklesUtility.PresetRect.CORNER_NE(freckles.rect)
+    r = FrecklesUtility.PresetRect.CORNER_NW(freckles.rect)
+    r = FrecklesUtility.PresetRect.CORNER_SE(freckles.rect)
+    r = FrecklesUtility.PresetRect.CORNER_SW(freckles.rect)
+
+    r = FrecklesUtility.PresetRect.CANVAS_NORTH(freckles.rect)
+	r = FrecklesUtility.PresetRect.CANVAS_EAST(freckles.rect)
+	r = FrecklesUtility.PresetRect.CANVAS_SOUTH(freckles.rect)
+	r = FrecklesUtility.PresetRect.CANVAS_WEST(freckles.rect)
+		freckles.tweenTo(r, {delay:[.1, 1], speed:[.1, 1]})
+	})
+</script>
+
+
+</html>
+
+
+
+<!-- <script type="text/javascript" src="./dist/index.umd.js"></script> -->
+<!-- <script type="text/javascript" src="./dist/utilities.umd.min.js"></script> -->
