@@ -8,7 +8,7 @@ Freckles is a particle library that rasterizes DOM elements to the canvas so tha
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>FRECKLES</title>
 	<style type="text/css">
 		canvas {
 			background-color: #EEE;
