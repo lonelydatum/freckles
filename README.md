@@ -65,3 +65,7 @@ promise.then(function() {
   freckles.tweenTo(r, options)
 }
 ```
+
+
+Special thanks to Christoph Burgmer @cburgmer for the rasterizeHTML.js
+https://github.com/cburgmer/rasterizeHTML.js
