@@ -52,6 +52,7 @@ class Freckles {
 
 
 	tweenTo(rect, options){
+		console.log(rect, options);
 		this.art.tweenTo(rect, options)
 	}
 	tweenFrom(rect, options){

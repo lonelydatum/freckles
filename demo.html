@@ -59,9 +59,12 @@
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
-<script type="text/javascript" src="https://unpkg.com/freckles@1.0.0/dist/index.umd.min.js"></script>
-<script type="text/javascript" src="https://unpkg.com/freckles@1.0.0/dist/utilities.umd.min.js"></script>
+<!-- <script type="text/javascript" src="https://unpkg.com/freckles@1.1.0/dist/index.umd.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/freckles@1.1.0/dist/utilities.umd.min.js"></script> -->
 
+
+<script type="text/javascript" src="./dist/index.umd.js"></script>
+<script type="text/javascript" src="./dist/utilities.umd.min.js"></script>
 
 
 <script>
@@ -88,7 +91,9 @@
 	r = FrecklesUtility.PresetRect.CANVAS_EAST(freckles.rect)
 	r = FrecklesUtility.PresetRect.CANVAS_SOUTH(freckles.rect)
 	r = FrecklesUtility.PresetRect.CANVAS_WEST(freckles.rect)
-		freckles.tweenTo(r, {delay:[.1, 1], speed:[.1, 1]})
+
+
+		freckles.tweenTo(r)
 	})
 </script>
 
@@ -96,6 +101,3 @@
 </html>
 
 
-
-<!-- <script type="text/javascript" src="./dist/index.umd.js"></script> -->
-<!-- <script type="text/javascript" src="./dist/utilities.umd.min.js"></script> -->

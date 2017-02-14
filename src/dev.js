@@ -13,12 +13,12 @@ const werd = {
 let freckles = new Freckles( werd.canvas )
 freckles.write( werd.css ).then( ()=>{
 	let r = PresetRect.CONTENT_SOUTH(freckles.rect, freckles.rectContent)
-	freckles.tweenTo(r, {})
+	freckles.tweenTo(r)
 })
 
 
 setTimeout(()=>{
-	freckles.tweenHome({speed:.3, delay:[.1, .5]})
+	// freckles.tweenHome({speed:.3, delay:[.1, .5]})
 },1000)
 
 

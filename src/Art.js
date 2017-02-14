@@ -35,10 +35,12 @@ class Art {
 	tween(fromTo, rect, options={delay:[.5, 1]}) {
 		let defaultOptions = {speed:2}
 		let newOptions = {...defaultOptions, ...options}
+
 		this.particles.forEach((particleItem)=>{
-			const xy = (rect instanceof Rect) ? rect.getRandomPoint() : particleItem.positionStatic
+			const xy = (rect === 'HOME') ? particleItem.positionStatic : rect.getRandomPoint()
 			const props = this.loopToRange(newOptions)
 			const propsCombined = {...xy, ...props}
+			console.log(rect);
 			TweenMax[fromTo](
 				particleItem,
 				propsCombined.speed,
@@ -62,6 +64,7 @@ class Art {
 
 
 	tweenTo(rect, options) {
+		console.log(rect, options);
 		this.tween('to', rect, options )
 	}
 
