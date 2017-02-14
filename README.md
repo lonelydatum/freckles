@@ -74,7 +74,20 @@ import Freckles from 'freckles'
 import FrecklesUtility from 'freckles/dist/utilities.umd.min.js'
 ```
 
-
+##Options
+Control
+ - speed
+ - delay
+ - ease
+ 
+ If you want a random number use an array [min, max]. Use gsap's easing for the ease.
+ ```
+ const options = {
+ 	speed: .2,
+	delay: [.2, 2],
+	ease: Back.easeOut
+ }
+ ```
 
 
 ##Presets
@@ -101,6 +114,8 @@ r = FrecklesUtility.PresetRect.CANVAS_EAST(freckles.rect)
 r = FrecklesUtility.PresetRect.CANVAS_SOUTH(freckles.rect)
 r = FrecklesUtility.PresetRect.CANVAS_WEST(freckles.rect)
 ```
+
+
 
 
 Here is a demo from codepen: http://codepen.io/lonelydatum/pen/qRgQxP
