@@ -65,7 +65,30 @@ promise.then(function() {
   freckles.tweenTo(r, options)
 }
 ```
+##Presets
+Want to move the particles to the corner, edges, ect of the canvas. Here are all the presets from
+```
+let r
+r = FrecklesUtility.PresetRect.CONTENT_NORTH(freckles.rect, freckles.rectContent)
+r = FrecklesUtility.PresetRect.CONTENT_EAST(freckles.rect, freckles.rectContent)
+r = FrecklesUtility.PresetRect.CONTENT_SOUTH(freckles.rect, freckles.rectContent)
+r = FrecklesUtility.PresetRect.CONTENT_WEST(freckles.rect, freckles.rectContent)
 
+r = FrecklesUtility.PresetRect.CENTER_NORTH(freckles.rect)
+r = FrecklesUtility.PresetRect.CENTER_EAST(freckles.rect)
+r = FrecklesUtility.PresetRect.CENTER_SOUTH(freckles.rect)
+r = FrecklesUtility.PresetRect.CENTER_WEST(freckles.rect)
+
+r = FrecklesUtility.PresetRect.CORNER_NE(freckles.rect)
+r = FrecklesUtility.PresetRect.CORNER_NW(freckles.rect)
+r = FrecklesUtility.PresetRect.CORNER_SE(freckles.rect)
+r = FrecklesUtility.PresetRect.CORNER_SW(freckles.rect)
+
+r = FrecklesUtility.PresetRect.CANVAS_NORTH(freckles.rect)
+r = FrecklesUtility.PresetRect.CANVAS_EAST(freckles.rect)
+r = FrecklesUtility.PresetRect.CANVAS_SOUTH(freckles.rect)
+r = FrecklesUtility.PresetRect.CANVAS_WEST(freckles.rect)
+```
 
 Special thanks to Christoph Burgmer @cburgmer for the rasterizeHTML.js
 https://github.com/cburgmer/rasterizeHTML.js
