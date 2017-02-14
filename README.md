@@ -28,10 +28,16 @@ import FrecklesUtility from 'freckles/dist/utilities.umd.min.js'
 ```
 <div id="freckles">
   <style>
+    @font-face {
+				font-family: "myFont";
+				src: url('./myFont.woff') format('woff');
+				font-weight: normal;
+				font-style: normal;
+		}
     body{
       margin: 0;
       padding: 0;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: myFont;
     }
 
     p {
@@ -42,6 +48,7 @@ import FrecklesUtility from 'freckles/dist/utilities.umd.min.js'
     }
   </style>
   <p>FRECKLES</p>
+  <img src="you/can/even/load/images.png" >
 </div>
 ```
 
@@ -90,5 +97,5 @@ r = FrecklesUtility.PresetRect.CANVAS_SOUTH(freckles.rect)
 r = FrecklesUtility.PresetRect.CANVAS_WEST(freckles.rect)
 ```
 
-Special thanks to Christoph Burgmer @cburgmer for the rasterizeHTML.js
-https://github.com/cburgmer/rasterizeHTML.js
+
+Here is a demo from codepen: http://codepen.io/lonelydatum/pen/qRgQxP
