@@ -45,13 +45,15 @@ import FrecklesUtility from 'freckles/dist/utilities.umd.min.js'
 </div>
 ```
 
+##CANVAS
 ```
 <canvas id="canvas" width="500" height="500" > </canvas>
 ```
 
 
+##JS
 ```
-var freckles = new Freckles(document.getElementById('canvas'))
+var freckles = new Freckles(document.getElementById('canvas')); //pass the canvas element to the constructor
 var promise = freckles.write(document.getElementById('freckles'))
 
 promise.then(function() {
