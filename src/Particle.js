@@ -1,5 +1,5 @@
 import Vector from './Vector.js'
-import Singleton from './util/Singleton.js'
+
 
 
 // console.log(TweenMax);

@@ -1,17 +1,20 @@
-import Stardust, {Rect, seXY} from './Stardust.js'
-import TweenMax from 'gsap'
+import Freckles from './Freckles.js'
+import PresetRect from './util/PresetRect.js'
 
 
 
 
-
-const werd1 = {
+const werd = {
 	canvas: document.getElementById('canvas'),
 	css: document.getElementById('stardust-css-2')
 }
 
 
-let stardust1 = new Stardust( werd1.canvas )
+let freckles = new Freckles( werd.canvas )
+freckles.write( werd.css ).then( ()=>{
+	let r = PresetRect.CONTENT_SOUTH(freckles.rect, freckles.rectContent)
+	freckles.tweenTo(r)
+})
 
 
 
@@ -21,62 +24,61 @@ let stardust1 = new Stardust( werd1.canvas )
 
 
 
-const tl = new TimelineMax()
 
 
-stardust1.write( werd1.css ).then( ()=>{
-	let r = seXY.CONTENT_SOUTH(stardust1.rect, stardust1.rectContent)
-	const tweenOptions = stardust1.createOptions(
-		'to',
-		{min:.2, max:5},
-		{ xy: r, ease: Back.easeIn },
-		1
-	)
+// freckles.write( werd1.css ).then( ()=>{
+	// let r = seXY.CONTENT_SOUTH(freckles.rect, freckles.rectContent)
+	// const tweenOptions = freckles.createOptions(
+	// 	'to',
+	// 	{min:.2, max:5},
+	// 	{ xy: r, ease: Back.easeIn },
+	// 	1
+	// )
 
-	const tweenOptions_2 = stardust1.createOptions(
-		'to',
-		{min:1, max:3},
-		{ xy: 'HOME', ease:Back.easeOut},
-		1
-	)
-	stardust1.tween(tweenOptions)
-	setTimeout( ()=>{
-		stardust1.tween(tweenOptions_2)
-	}, 6000 )
+	// const tweenOptions_2 = freckles.createOptions(
+	// 	'to',
+	// 	{min:1, max:3},
+	// 	{ xy: 'HOME', ease:Back.easeOut},
+	// 	1
+	// )
+	// freckles.tween(tweenOptions)
+	// setTimeout( ()=>{
+	// 	freckles.tween(tweenOptions_2)
+	// }, 6000 )
 
-	stardust1.tween(tweenOptions)
-
-
-	setTimeout( ()=>{
-		const tweenOptions_3 = stardust1.createOptions(
-		'to',
-		{min:1, max:3},
-		{ xy: seXY.CONTENT_EAST(stardust1.rect, stardust1.rectContent), ease:Back.easeOut},
-		1
-	)
-		stardust1.tween(tweenOptions_3)
-	}, 10000 )
+	// freckles.tween(tweenOptions)
 
 
-	setTimeout( ()=>{
-		const tweenOptions_3 = stardust1.createOptions(
-		'to',
-		{min:1, max:3},
-		{ xy: 'HOME', ease:Elastic.easeOut},
-		1
-	)
-		stardust1.tween(tweenOptions_3)
-	}, 13000 )
-} )
+	// setTimeout( ()=>{
+	// 	const tweenOptions_3 = freckles.createOptions(
+	// 	'to',
+	// 	{min:1, max:3},
+	// 	{ xy: seXY.CONTENT_EAST(freckles.rect, freckles.rectContent), ease:Back.easeOut},
+	// 	1
+	// )
+	// 	freckles.tween(tweenOptions_3)
+	// }, 10000 )
+
+
+	// setTimeout( ()=>{
+	// 	const tweenOptions_3 = freckles.createOptions(
+	// 	'to',
+	// 	{min:1, max:3},
+	// 	{ xy: 'HOME', ease:Elastic.easeOut},
+	// 	1
+	// )
+	// 	freckles.tween(tweenOptions_3)
+	// }, 13000 )
+// } )
 
 
 
 // setTimeout(()=>{
-// 	tl.add( stardust1.tween(tweenOptions_home) )
+// 	tl.add( freckles.tween(tweenOptions_home) )
 // }, 4000)
 
 // setTimeout(()=>{
-// 	stardust1.tween(tweenOptions)
+// 	freckles.tween(tweenOptions)
 // }, 2000)
 
 

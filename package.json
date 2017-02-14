@@ -1,5 +1,5 @@
 {
-  "name": "star-dust",
+  "name": "freckles",
   "version": "0.0.0-development",
   "description": "make particles",
   "main": "./dist/index.umd.js",
@@ -13,25 +13,27 @@
     "build:main": "babel src",
     "build:umd": "webpack --config webpack.config.babel.js --output-filename index.umd.js",
     "build:umd.min": "webpack --config webpack.config.babel.js --output-filename index.umd.min.js -p",
+    "build:utilities": "webpack --config webpack.config.utilities.babel.js --output-filename utilities.umd.min.js -p",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lonelydatum/star-dust.git"
+    "url": "https://github.com/lonelydatum/freckles.git"
   },
   "author": "Gar Liu <gar@lonelydatum.com> (http://lonelydatum.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lonelydatum/star-dust/issues"
+    "url": "https://github.com/lonelydatum/freckles/issues"
   },
   "files": [
     "dist",
     "README.md"
   ],
-  "homepage": "https://github.com/lonelydatum/star-dust#readme",
+  "homepage": "https://github.com/lonelydatum/freckles#readme",
   "keywords": [
-    "random",
-    "starwars"
+    "particles",
+    "express",
+    "words"
   ],
   "devDependencies": {
     "babel-cli": "6.22.2",

@@ -32,17 +32,43 @@ class Art {
 	}
 
 
-	tween(tweenOptions) {
-		const { toFrom } = tweenOptions
+	tween(fromTo, rect, options) {
 		this.particles.forEach((particleItem)=>{
-			const obj = tweenOptions.getTweenData(particleItem.positionStatic)
-			TweenLite[toFrom](
+			const xy = rect.getRandomPoint()
+			const props = this.loopToRange(options)
+
+			const pp = {...xy, ...props}
+
+			TweenMax[fromTo](
 				particleItem,
 				2,
-				{...obj.tweenData, delay:obj.speed}
+				pp
 			)
 		})
 	}
+
+	loopToRange(options) {
+		let props = {}
+		for (var key in options) {
+		    var item = options[key];
+		    if(Array.isArray(item)) {
+		    	props[key] = range(item[0], item[1])
+		    }else{
+		    	props[key] = options[key]
+		    }
+		}
+		return props
+	}
+
+
+	tweenTo(rect, options={delay:[.5, 1]}) {
+		this.tween('to', rect, options )
+	}
+
+	tweenFrom(rect, options={delay:[.5, 1]}) {
+		this.tween('from', rect, options )
+	}
+
 
 
 

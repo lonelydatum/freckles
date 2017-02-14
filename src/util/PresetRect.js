@@ -1,6 +1,6 @@
 import Rect from './Rect.js'
 
-const GetXY = {
+const PresetRect = {
 	CENTER_NORTH(rectCanvas) {
 		return this.getCenter('NORTH', rectCanvas)
 	},
@@ -124,7 +124,11 @@ const GetXY = {
 
 	rect(x, y, w, h) {
 		return new Rect(x, y, w, h, {originX:.5, originY:.5})
+	},
+
+	createRect(x, y, w, h, offset) {
+		return new Rect(x, y, w, h, offset)
 	}
 }
 
-export default GetXY
+module.exports = PresetRect

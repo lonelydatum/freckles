@@ -3,11 +3,11 @@ import {join} from 'path'
 const include = join(__dirname, 'src')
 
 export default {
-  entry: './src/FrecklesHack.js',
+  entry: './src/util/Utility.js',
   output: {
     path: join(__dirname, 'dist'),
     libraryTarget: 'umd',
-    library: 'Freckles'
+    library: 'FrecklesUtility',
   },
   devtool: 'source-map',
   module: {

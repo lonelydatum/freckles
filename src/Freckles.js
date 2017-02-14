@@ -4,19 +4,13 @@ import Art from './Art.js'
 import Rect from './util/Rect.js'
 import _ from './util/gar-dash.js'
 import FilterByColor from './util/FilterByColor.js'
-import Options from './Options.js'
-import seXY from './util/seXY.js'
 import {IsCanvasBlank, ClearCanvas} from './util/Helper.js'
 
-class Stardust {
+class Freckles {
 	constructor(canvas) {
 		this.canvas = canvas
 		this.rect = new Rect(0,0,this.canvas.width, this.canvas.height)
 		this.canvasCloned = canvas.cloneNode()
-	}
-
-	createOptions(toFrom, speed, tweenProps, startTime) {
-		return new Options(toFrom, speed, tweenProps, startTime)
 	}
 
 	write(html, tweenOptions) {
@@ -53,15 +47,14 @@ class Stardust {
 
 
 
-	tween(tweenOptions) {
-		this.art.tween(tweenOptions)
 
 
+	tweenTo(rect, options){
+		this.art.tweenTo(rect, options)
 	}
-
-
-
-
+	tweenFrom(rect, options){
+		this.art.tweenFrom(rect, options)
+	}
 
 	render() {
 		this.art.render()
@@ -75,7 +68,12 @@ class Stardust {
 		}
 	}
 
-
+	get particles(){
+		return this.art.particles
+	}
 }
 
-export {Stardust as default, Rect, seXY}
+
+Freckles.Rect = Rect
+
+export default Freckles
