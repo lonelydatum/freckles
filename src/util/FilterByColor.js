@@ -43,7 +43,16 @@ class FilterByColor {
 	getNonTransparentPixels(context) {
 
 		const rect = new Rect(0, 0, context.canvas.width, context.canvas.height)
-		const data = context.getImageData(rect.x, rect.y, rect.w, rect.h).data
+
+		let data
+		try {
+			data = context.getImageData(rect.x, rect.y, rect.w, rect.h).data
+		}catch(e){
+			alert('Sorry the browser is not supported. Try Chrome or Firefox')
+		}
+
+
+
 
 
 

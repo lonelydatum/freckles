@@ -13,35 +13,35 @@ class Freckles {
 		this.canvasCloned = canvas.cloneNode()
 	}
 
-	write(html, tweenOptions) {
+	write(html) {
 
 		html = _.get(html, 'innerHTML', 'Couldnt find innerHTML')
 		const promise = new Promise((good, bad)=>{
-			document.fonts.ready.then(()=>{
-				const promise = rasterizeHTML.drawHTML(html, this.canvasCloned);
-				promise.then((result)=>{
+			// document.fonts.ready.then(()=>{
+				const p = rasterizeHTML.drawHTML(html, this.canvasCloned);
+				p.then((result)=>{
 					good(result)
+
 				})
-			})
+			// })
 		})
 
-		promise.then(this.onDummyLoaded.bind(this, tweenOptions))
+		promise.then(this.onDummyLoaded.bind(this))
 		return promise
 	}
 
 
-	onDummyLoaded(tweenOptions, result) {
+	onDummyLoaded(result) {
+
 		const canvasCloned = this.canvasCloned
-		if(IsCanvasBlank(canvasCloned)){
-			ClearCanvas(canvasCloned)
-		}
+		// if(IsCanvasBlank(canvasCloned)){
+		// 	ClearCanvas(canvasCloned)
+		// }
+
+
 
 		this.art = new Art( this.canvas )
 		this.art.write( canvasCloned )
-
-		if(tweenOptions) {
-			this.tween(tweenOptions)
-		}
 		this.render()
 	}
 
