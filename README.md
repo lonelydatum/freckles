@@ -125,3 +125,6 @@ freckles.particles.forEach( particleItem=>{
 ```
 
 Here is a demo from codepen: http://codepen.io/lonelydatum/pen/qRgQxP
+
+Huge thanks to Christoph Burgmer for rasterizeHTML.js https://github.com/cburgmer/rasterizeHTML.js
+
