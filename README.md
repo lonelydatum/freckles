@@ -12,12 +12,16 @@ Freckles is a particle library that rasterizes DOM elements to the canvas so tha
 ```
 
 #####npm
-`npm install -S freckles`
+```npm install -S freckles```
 
 ```
 import Freckles from 'freckles'
 import FrecklesUtility from 'freckles/dist/utilities.umd.min.js'
 ```
+
+
+
+
 
 
 ##Stuff that you want to raseterize for particles:
