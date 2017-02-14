@@ -77,8 +77,6 @@ import FrecklesUtility from 'freckles/dist/utilities.umd.min.js'
 
 
 
-
-```
 ##Presets
 Want to move the particles to the corner, edges, ect of the canvas. Here are all the presets from
 ```
